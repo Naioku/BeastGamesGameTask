@@ -8,7 +8,8 @@ namespace Control
         [SerializeField] private Transform groundCheck;
         [SerializeField] private float groundDistance = 0.4f;
         [SerializeField] private LayerMask groundMask;
-        [SerializeField] private float gravity = -9.81f;
+        [SerializeField] private float gravity = -150f;
+        [SerializeField] private float jumpHeight = 3f;
         
         private CharacterController _controller;
         private Vector3 _velocity;
@@ -25,6 +26,15 @@ namespace Control
         {
             ManageMovement();
             ManagePhysics();
+            ManageJump();
+            
+            ApplyVelocity();
+        }
+
+        private void ManageMovement()
+        {
+            Vector3 movement = transform.right * HorizontalInput + transform.forward * VerticalInput;
+            _controller.Move(movement * speed * Time.deltaTime);
         }
 
         private void ManagePhysics()
@@ -34,14 +44,21 @@ namespace Control
                 _velocity.y = -0.5f;
             }
 
-            _velocity.y += 0.5f * gravity * Mathf.Pow(Time.deltaTime, 2);
-            _controller.Move(_velocity);
+            _velocity.y += 0.5f * gravity * Time.deltaTime;
+
         }
 
-        private void ManageMovement()
+        private void ManageJump()
         {
-            Vector3 movement = transform.right * HorizontalInput + transform.forward * VerticalInput;
-            _controller.Move(movement * speed * Time.deltaTime);
+            if (Input.GetButtonDown("Jump") && IsGrounded)
+            {
+                _velocity.y += Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+        }
+
+        private void ApplyVelocity()
+        {
+            _controller.Move(_velocity * Time.deltaTime);
         }
     }
 }
