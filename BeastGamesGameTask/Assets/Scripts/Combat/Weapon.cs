@@ -9,6 +9,7 @@ namespace Combat
         [SerializeField] private Camera fpCamera;
         [SerializeField] private float range = 100f;
         [SerializeField] private float timeBetweenShots;
+        [SerializeField] private float damage = 5f;
 
         private Vector3 _destinationPoint;
         private float _timeSinceLastShot = Mathf.Infinity;
@@ -45,7 +46,10 @@ namespace Combat
                 firePointTransform.position,
                 transform.rotation);
             
-            projectileInstance.SetProjectileDirection(_destinationPoint, firePointTransform.position);
+            projectileInstance.PrepareProjectile(
+                _destinationPoint,
+                firePointTransform.position,
+                damage);
         }
 
         private void UpdateTimer()

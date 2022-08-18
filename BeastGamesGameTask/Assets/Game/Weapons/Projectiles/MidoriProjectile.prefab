@@ -4825,7 +4825,7 @@ GameObject:
   - component: {fileID: 2266739516174720024}
   - component: {fileID: -2584895897879947742}
   m_Layer: 0
-  m_Name: ProjectileGreen
+  m_Name: MidoriProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
