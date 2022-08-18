@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3384575820800967044, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
+      propertyPath: combatMaterial
+      value: 
+      objectReference: {fileID: 11400000, guid: 69caef92c684348418aaf72d2bf9288b, type: 2}
     - target: {fileID: 1569377404270121108, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
       propertyPath: m_Name
-      value: CombatTarget
+      value: CombatTargetMidori
       objectReference: {fileID: 0}
     - target: {fileID: 7256985726011464922, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
       propertyPath: m_RootOrder

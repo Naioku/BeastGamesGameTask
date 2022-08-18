@@ -4893,9 +4893,8 @@ MonoBehaviour:
   speed: 20
   hitEffect: {fileID: 0}
   maxLifeTime: 2
-  destroyOnHit:
-  - {fileID: 7513165081970929013}
-  lifeAfterImpact: 0.1
+  damage: 0
+  combatMaterial: {fileID: 11400000, guid: 69caef92c684348418aaf72d2bf9288b, type: 2}
 --- !u!1 &7513165081970929013
 GameObject:
   m_ObjectHideFlags: 0
