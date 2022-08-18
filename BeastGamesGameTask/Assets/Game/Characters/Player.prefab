@@ -327,21 +327,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1866523964}
     m_Modifications:
+    - target: {fileID: -1624827218333486823, guid: cf92b0188d82b57489014f4436edaff3, type: 3}
+      propertyPath: fpCamera
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 2064103151357419674, guid: cf92b0188d82b57489014f4436edaff3, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2064103151357419674, guid: cf92b0188d82b57489014f4436edaff3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.004
       objectReference: {fileID: 0}
     - target: {fileID: 2064103151357419674, guid: cf92b0188d82b57489014f4436edaff3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.102
       objectReference: {fileID: 0}
     - target: {fileID: 2064103151357419674, guid: cf92b0188d82b57489014f4436edaff3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.128
       objectReference: {fileID: 0}
     - target: {fileID: 2064103151357419674, guid: cf92b0188d82b57489014f4436edaff3, type: 3}
       propertyPath: m_LocalRotation.w
