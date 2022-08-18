@@ -1,3 +1,4 @@
+using UI;
 using UnityEngine;
 
 namespace Combat
@@ -10,25 +11,70 @@ namespace Combat
         [SerializeField] private float range = 100f;
         [SerializeField] private float timeBetweenShots;
         [SerializeField] private float damage = 5f;
-
+        
+        private CombatTargetInfo _combatTargetInfo;
+        private WeaponInfo _weaponInfo;
         private Vector3 _destinationPoint;
         private float _timeSinceLastShot = Mathf.Infinity;
 
+        private void Start()
+        {
+            _combatTargetInfo = FindObjectOfType<CombatTargetInfo>();
+            _weaponInfo = FindObjectOfType<WeaponInfo>();
+        }
+
         void Update()
         {
+            Aim();
             ManageShooting();
             UpdateTimer();
+            UpdateWeaponInfo();
+        }
+
+        private void UpdateWeaponInfo()
+        {
+            float damageSum = damage + projectile.Damage;
+            _weaponInfo.UploadInfo(damageSum, projectile.CombatMaterial);
+        }
+
+        private void Aim()
+        {
+            Ray ray = GetRay();
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                _destinationPoint = hit.point;
+                ManageShowingTargetInfo(hit);
+            }
+            else
+            {
+                _destinationPoint = ray.GetPoint(range);
+            }
+        }
+
+        private void ManageShowingTargetInfo(RaycastHit hit)
+        {
+            var combatTarget = hit.transform.GetComponent<CombatTarget>();
+            if (combatTarget != null)
+            {
+                _combatTargetInfo.UploadInfo(
+                    combatTarget.Health,
+                    combatTarget.MaxHealth,
+                    combatTarget.CombatMaterial);
+                
+                _combatTargetInfo.ShowCanvas();
+            }
+            else
+            {
+                _combatTargetInfo.HideCanvas();
+            }
         }
 
         private void ManageShooting()
         {
             if (Input.GetButton("Fire1") && _timeSinceLastShot >= timeBetweenShots)
             {
-                Ray ray = GetRay();
-                RaycastHit hit;
-
-                _destinationPoint = Physics.Raycast(ray, out hit) ? hit.point : ray.GetPoint(range);
-
                 LunchProjectile();
                 _timeSinceLastShot = 0f;
             }

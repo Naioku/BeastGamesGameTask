@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8019725973124156399, guid: 434782673826f824da93fb438fc49d9e, type: 3}
       propertyPath: m_Name
-      value: CombatTargetMidoriCrate
+      value: MidoriCrate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 434782673826f824da93fb438fc49d9e, type: 3}

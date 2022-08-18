@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 namespace Combat
@@ -12,6 +13,9 @@ namespace Combat
 
         private Rigidbody _rigidbody;
         private Vector3 _destinationVector;
+
+        public float Damage => damage;
+        public CombatMaterial CombatMaterial => combatMaterial;
 
         private void Awake()
         {

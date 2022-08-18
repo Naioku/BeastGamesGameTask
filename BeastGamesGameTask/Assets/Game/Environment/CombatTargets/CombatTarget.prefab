@@ -58,5 +58,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafddccf484cae64b873fc068eacbb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetMaterial: 0
+  combatMaterial: 0
   health: 20
