@@ -49,10 +49,12 @@ namespace Combat
             var combatTarget = hit.transform.GetComponent<CombatTarget>();
             if (combatTarget != null)
             {
-                _combatTargetInfo.ShowInfo(
+                _combatTargetInfo.UploadInfo(
                     combatTarget.Health,
                     combatTarget.MaxHealth,
                     combatTarget.CombatMaterial);
+                
+                _combatTargetInfo.ShowCanvas();
             }
             else
             {

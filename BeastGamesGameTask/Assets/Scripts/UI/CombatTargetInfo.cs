@@ -5,47 +5,31 @@ using UnityEngine.UI;
 
 namespace UI
 {
+    [RequireComponent(typeof(ShowHideCanvas))]
     public class CombatTargetInfo : MonoBehaviour
     {
         [SerializeField] private Slider healthSlider;
         [SerializeField] private TextMeshProUGUI healthLabel;
         [SerializeField] private TextMeshProUGUI material;
         [SerializeField] private Image healthSliderFill;
-        
-        [Tooltip("How much the canvas have to be visible. Opposite of the opacity.")] 
-        [SerializeField] [Range(0f, 1f)] private float alpha = 0.8f;
 
-        private CanvasGroup _canvasGroup;
-        
-        private void Awake()
-        {
-            _canvasGroup = GetComponent<CanvasGroup>();
-        }
-
-        private void Start()
-        {
-            HideCanvas();
-        }
-
-        public void ShowInfo(float health, float maxHealth, CombatMaterial combatMaterial)
+        public void UploadInfo(float health, float maxHealth, CombatMaterial combatMaterial)
         {
             healthSlider.value = health / maxHealth;
             healthSliderFill.color = combatMaterial.Color;
             healthLabel.text = $"{health} / {maxHealth}";
             material.text = combatMaterial.name;
             material.color = combatMaterial.Color;
-
-            ShowCanvas();
         }
 
         public void HideCanvas()
         {
-            _canvasGroup.alpha = 0f;
+            GetComponent<ShowHideCanvas>().HideCanvas();
         }
-
-        private void ShowCanvas()
+        
+        public void ShowCanvas()
         {
-            _canvasGroup.alpha = alpha;
+            GetComponent<ShowHideCanvas>().ShowCanvas();
         }
     }
 }
