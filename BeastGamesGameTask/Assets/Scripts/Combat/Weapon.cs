@@ -13,12 +13,14 @@ namespace Combat
         [SerializeField] private float damage = 5f;
         
         private CombatTargetInfo _combatTargetInfo;
+        private WeaponInfo _weaponInfo;
         private Vector3 _destinationPoint;
         private float _timeSinceLastShot = Mathf.Infinity;
 
         private void Start()
         {
             _combatTargetInfo = FindObjectOfType<CombatTargetInfo>();
+            _weaponInfo = FindObjectOfType<WeaponInfo>();
         }
 
         void Update()
@@ -26,6 +28,13 @@ namespace Combat
             Aim();
             ManageShooting();
             UpdateTimer();
+            UpdateWeaponInfo();
+        }
+
+        private void UpdateWeaponInfo()
+        {
+            float damageSum = damage + projectile.Damage;
+            _weaponInfo.UploadInfo(damageSum, projectile.CombatMaterial);
         }
 
         private void Aim()
@@ -40,7 +49,7 @@ namespace Combat
             }
             else
             {
-                ray.GetPoint(range);
+                _destinationPoint = ray.GetPoint(range);
             }
         }
 
