@@ -4892,6 +4892,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   hitEffect: {fileID: 0}
+  maxLifeTime: 2
+  destroyOnHit:
+  - {fileID: 7513165081970929013}
+  lifeAfterImpact: 0.1
 --- !u!1 &7513165081970929013
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ namespace Combat
     {
         [SerializeField] private float speed;
         [SerializeField] private GameObject hitEffect;
+        [SerializeField] private float maxLifeTime = 10f;
 
         private Rigidbody _rigidbody;
         private Vector3 _destinationVector;
@@ -24,6 +25,8 @@ namespace Combat
         {
             transform.LookAt(destinationPoint);
             _destinationVector = (destinationPoint - firePoint).normalized;
+            
+            Destroy(gameObject, maxLifeTime);
         }
         
         private void OnTriggerEnter(Collider other)
@@ -32,6 +35,7 @@ namespace Combat
             {
                 Instantiate(hitEffect, other.transform.position, Quaternion.identity);
             }
+
             Destroy(gameObject);
         }
     }
