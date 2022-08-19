@@ -42,7 +42,6 @@ namespace Combat
             if (gameObject.activeSelf)
             {
                 _projectilePool.Release(this);
-
             }
         }
 
@@ -52,7 +51,7 @@ namespace Combat
             _destinationVector = (destinationPoint - firePoint).normalized;
         }
 
-        private void SetDamage(float damage) =>this.damage += damage;
+        private void SetDamage(float damage) =>this.damage = damage;
 
         private void OnTriggerEnter(Collider other)
         {
