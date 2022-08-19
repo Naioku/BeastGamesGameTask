@@ -52,7 +52,7 @@ namespace Combat
             _destinationVector = (destinationPoint - firePoint).normalized;
         }
 
-        private void SetDamage(float damage) =>this.damage += damage;
+        private void SetDamage(float damage) =>this.damage = damage;
 
         private void OnTriggerEnter(Collider other)
         {
