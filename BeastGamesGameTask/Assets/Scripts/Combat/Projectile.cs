@@ -42,7 +42,6 @@ namespace Combat
             if (gameObject.activeSelf)
             {
                 _projectilePool.Release(this);
-
             }
         }
 
