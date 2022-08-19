@@ -1,5 +1,7 @@
+using System.Collections;
 using Core;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Combat
 {
@@ -13,6 +15,7 @@ namespace Combat
 
         private Rigidbody _rigidbody;
         private Vector3 _destinationVector;
+        private IObjectPool<Projectile> _projectilePool;
 
         public float Damage => damage;
         public CombatMaterial CombatMaterial => combatMaterial;
@@ -27,20 +30,26 @@ namespace Combat
             _rigidbody.velocity = _destinationVector * speed;
         }
 
-        public void PrepareProjectile(Vector3 destinationPoint, Vector3 firePoint, float damage)
+        public void SetPool(IObjectPool<Projectile> projectilePool) => _projectilePool = projectilePool;
+        
+        public IEnumerator PrepareProjectile(Vector3 destinationPoint, Vector3 firePoint, float damage)
         {
             SetProjectileDirection(destinationPoint, firePoint);
             SetDamage(damage);
             
-            Destroy(gameObject, maxLifeTime);
+            yield return new WaitForSecondsRealtime(maxLifeTime);
+
+            if (gameObject.activeSelf)
+            {
+                _projectilePool.Release(this);
+
+            }
         }
 
         private void SetProjectileDirection(Vector3 destinationPoint, Vector3 firePoint)
         {
             transform.LookAt(destinationPoint);
             _destinationVector = (destinationPoint - firePoint).normalized;
-            
-            Destroy(gameObject, maxLifeTime);
         }
 
         private void SetDamage(float damage) =>this.damage += damage;
@@ -57,8 +66,8 @@ namespace Combat
             {
                 combatTarget.TakeDamage(damage);
             }
-
-            Destroy(gameObject);
+            
+            _projectilePool.Release(this);
         }
     }
 }
