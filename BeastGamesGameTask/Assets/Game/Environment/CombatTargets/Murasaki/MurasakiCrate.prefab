@@ -96,15 +96,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2177974441156265889, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.46
       objectReference: {fileID: 0}
     - target: {fileID: 2177974441156265889, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 2177974441156265889, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.23
       objectReference: {fileID: 0}
     - target: {fileID: 2177974441156265889, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
       propertyPath: m_LocalRotation.w
@@ -112,15 +112,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2177974441156265889, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2177974441156265889, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2177974441156265889, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2177974441156265889, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -133,6 +133,18 @@ PrefabInstance:
     - target: {fileID: 2177974441156265889, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137834791945741575, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
+      propertyPath: destroyImmediately.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3137834791945741575, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
+      propertyPath: destroyImmediately.Array.data[0]
+      value: 
+      objectReference: {fileID: 4761517005348684786}
+    - target: {fileID: 6878519484218830046, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8019725973124156399, guid: 1aa12536e89428644acc0cb084dc4991, type: 3}
       propertyPath: m_Name

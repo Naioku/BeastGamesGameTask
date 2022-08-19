@@ -1,5 +1,6 @@
 using Core;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Combat
 {
@@ -8,6 +9,7 @@ namespace Combat
         [SerializeField] private CombatMaterial combatMaterial;
         [SerializeField] private float health = 20f;
         [SerializeField] private float maxHealth = 20f;
+        [SerializeField] private UnityEvent onDestroy;
 
         public CombatMaterial CombatMaterial => combatMaterial;
         public float Health => health;
@@ -29,6 +31,7 @@ namespace Combat
 
         private void DestroyCombatTarget()
         {
+            onDestroy.Invoke();
             Destroy(gameObject);
         }
     }

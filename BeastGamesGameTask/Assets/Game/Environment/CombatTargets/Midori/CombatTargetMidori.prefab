@@ -11,9 +11,45 @@ PrefabInstance:
       propertyPath: combatMaterial
       value: 
       objectReference: {fileID: 11400000, guid: 69caef92c684348418aaf72d2bf9288b, type: 2}
+    - target: {fileID: -3384575820800967044, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
+      propertyPath: delayTimeToDestroy
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3384575820800967044, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
+      propertyPath: onDestroy.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3384575820800967044, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
+      propertyPath: onDestroy.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3384575820800967044, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
+      propertyPath: onDestroy.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3384575820800967044, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
+      propertyPath: onDestroy.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3384575820800967044, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
+      propertyPath: onDestroy.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: -3384575820800967044, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
+      propertyPath: onDestroy.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.ParticleSystem, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -3384575820800967044, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
+      propertyPath: onDestroy.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1569377404270121108, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
       propertyPath: m_Name
       value: CombatTargetMidori
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120164136616613280, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7256985726011464922, guid: 7fffdf9df8581a043b7341dc379a25e4, type: 3}
       propertyPath: m_RootOrder
