@@ -191,6 +191,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &102861987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102861988}
+  m_Layer: 0
+  m_Name: Projectiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &102861988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102861987}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &109342305
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,17 +4788,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 169350258417942888, guid: eff12d85252c28245bcbe2e50f06b5f4, type: 3}
-      propertyPath: combatTargetInfo
+      propertyPath: projectilesParentInHierarchy
       value: 
-      objectReference: {fileID: 792599033}
+      objectReference: {fileID: 102861988}
     - target: {fileID: 4578368552594277606, guid: eff12d85252c28245bcbe2e50f06b5f4, type: 3}
-      propertyPath: combatTargetInfo
+      propertyPath: projectilesParentInHierarchy
       value: 
-      objectReference: {fileID: 792599033}
+      objectReference: {fileID: 102861988}
     - target: {fileID: 5589659080923936153, guid: eff12d85252c28245bcbe2e50f06b5f4, type: 3}
-      propertyPath: combatTargetInfo
+      propertyPath: projectilesParentInHierarchy
       value: 
-      objectReference: {fileID: 792599033}
+      objectReference: {fileID: 102861988}
     - target: {fileID: 8038492570803226821, guid: eff12d85252c28245bcbe2e50f06b5f4, type: 3}
       propertyPath: m_RootOrder
       value: 2

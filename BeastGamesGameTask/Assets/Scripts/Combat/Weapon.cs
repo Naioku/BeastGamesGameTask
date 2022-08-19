@@ -1,5 +1,6 @@
 using UI;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Combat
 {
@@ -12,23 +13,67 @@ namespace Combat
         [SerializeField] private float timeBetweenShots;
         [SerializeField] private float damage = 5f;
         
+        [Tooltip("Where projectiles have to be stored in the Hierarchy?")]
+        [SerializeField] private Transform projectilesParentInHierarchy;
+        
         private CombatTargetInfo _combatTargetInfo;
         private WeaponInfo _weaponInfo;
         private Vector3 _destinationPoint;
         private float _timeSinceLastShot = Mathf.Infinity;
+        private IObjectPool<Projectile> _projectilePool;
 
         private void Start()
         {
             _combatTargetInfo = FindObjectOfType<CombatTargetInfo>();
             _weaponInfo = FindObjectOfType<WeaponInfo>();
+            _projectilePool = new ObjectPool<Projectile>(
+                CreateProjectile,
+                OnGet,
+                OnRelease,
+                OnDestroyProjectile);
         }
 
-        void Update()
+        private void Update()
         {
             Aim();
             ManageShooting();
             UpdateTimer();
             UpdateWeaponInfo();
+        }
+        
+        private Projectile CreateProjectile()
+        {
+            Projectile projectileInstance = Instantiate(
+                projectile, 
+                firePointTransform.position,
+                transform.rotation,
+                projectilesParentInHierarchy != null? projectilesParentInHierarchy : null);
+            
+            projectileInstance.SetPool(_projectilePool);
+            return projectileInstance;
+        }
+
+        private void OnGet(Projectile obj)
+        {
+            obj.gameObject.SetActive(true);
+            obj.transform.position = firePointTransform.position;
+            
+            StartCoroutine(obj.PrepareProjectile(
+                _destinationPoint,
+                firePointTransform.position,
+                damage));
+        }
+
+        private void OnRelease(Projectile obj)
+        {
+            if (!obj.enabled) return;
+            
+            obj.gameObject.SetActive(false);
+        }
+
+        private void OnDestroyProjectile(Projectile obj)
+        {
+            Destroy(obj.gameObject);
         }
 
         private void UpdateWeaponInfo()
@@ -87,15 +132,7 @@ namespace Combat
 
         private void LunchProjectile()
         {
-            Projectile projectileInstance = Instantiate(
-                projectile, 
-                firePointTransform.position,
-                transform.rotation);
-            
-            projectileInstance.PrepareProjectile(
-                _destinationPoint,
-                firePointTransform.position,
-                damage);
+            _projectilePool.Get();
         }
 
         private void UpdateTimer()
