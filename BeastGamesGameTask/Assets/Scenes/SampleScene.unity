@@ -1345,14 +1345,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MidoriCrate (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6701873947394835718, guid: 04f36c441fad1aa43890982801cbc454, type: 3}
-      propertyPath: onDestroy.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1156608230}
-    - target: {fileID: 6701873947394835718, guid: 04f36c441fad1aa43890982801cbc454, type: 3}
-      propertyPath: onDestroy.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
-      objectReference: {fileID: 0}
     - target: {fileID: 7544579342557013920, guid: 04f36c441fad1aa43890982801cbc454, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2155,7 +2147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 29055395388835343, guid: b09e30205dce1fc4ea26a88e3f017e12, type: 3}
       propertyPath: m_Name
-      value: Tab
+      value: ShowWeaponInfo
       objectReference: {fileID: 0}
     - target: {fileID: 410114954678468585, guid: b09e30205dce1fc4ea26a88e3f017e12, type: 3}
       propertyPath: m_text
@@ -3872,7 +3864,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3816153023566986474, guid: b09e30205dce1fc4ea26a88e3f017e12, type: 3}
       propertyPath: m_text
-      value: LPM
+      value: LMB
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816153023566986474, guid: b09e30205dce1fc4ea26a88e3f017e12, type: 3}
+      propertyPath: m_fontSize
+      value: 24.4
       objectReference: {fileID: 0}
     - target: {fileID: 8812487221987360640, guid: b09e30205dce1fc4ea26a88e3f017e12, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4240,7 +4236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 29055395388835343, guid: b09e30205dce1fc4ea26a88e3f017e12, type: 3}
       propertyPath: m_Name
-      value: Space
+      value: Jump
       objectReference: {fileID: 0}
     - target: {fileID: 410114954678468585, guid: b09e30205dce1fc4ea26a88e3f017e12, type: 3}
       propertyPath: m_text
@@ -5076,7 +5072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8682472380089213086, guid: 4c3dc9ce66d97d246b33979bb5247a0b, type: 3}
       propertyPath: m_Name
-      value: 123
+      value: WeaponSwitch
       objectReference: {fileID: 0}
     - target: {fileID: 8682472380089213087, guid: 4c3dc9ce66d97d246b33979bb5247a0b, type: 3}
       propertyPath: m_Pivot.x
