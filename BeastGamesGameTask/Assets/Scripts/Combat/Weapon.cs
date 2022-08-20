@@ -58,10 +58,10 @@ namespace Combat
             obj.gameObject.SetActive(true);
             obj.transform.position = firePointTransform.position;
             
-            StartCoroutine(obj.PrepareProjectile(
+            obj.PrepareProjectile(
                 _destinationPoint,
                 firePointTransform.position,
-                damage));
+                damage);
         }
 
         private void OnRelease(Projectile obj)
