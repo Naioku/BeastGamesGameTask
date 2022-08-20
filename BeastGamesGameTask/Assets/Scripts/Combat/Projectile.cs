@@ -10,14 +10,14 @@ namespace Combat
         [SerializeField] private float speed;
         [SerializeField] private GameObject hitEffect;
         [SerializeField] private float maxLifeTime = 10f;
-        [SerializeField] private float damage;
         [SerializeField] private CombatMaterial combatMaterial;
 
+        private float _damage;
         private Rigidbody _rigidbody;
         private Vector3 _destinationVector;
         private IObjectPool<Projectile> _projectilePool;
 
-        public float Damage => damage;
+        public float Damage => _damage;
         public CombatMaterial CombatMaterial => combatMaterial;
 
         private void Awake()
@@ -51,7 +51,7 @@ namespace Combat
             _destinationVector = (destinationPoint - firePoint).normalized;
         }
 
-        private void SetDamage(float damage) =>this.damage = damage;
+        private void SetDamage(float damage) =>this._damage = damage;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -63,7 +63,7 @@ namespace Combat
             var combatTarget = other.GetComponent<CombatTarget>();
             if (combatTarget != null && combatTarget.CombatMaterial == combatMaterial)
             {
-                combatTarget.TakeDamage(damage);
+                combatTarget.TakeDamage(_damage);
             }
             
             _projectilePool.Release(this);

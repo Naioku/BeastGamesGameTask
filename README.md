@@ -24,5 +24,8 @@ From the Unity editor You can made a lot of Your own materials, which then
 You can use later in the gameplay. Some of object to destroy (CombatTargets)
 can be connected to the specific functionalities like opening the door.
 That functionality will be triggered after player will destroy that
-CombatTarget. For demonstration at that stage I have connected only one
-Midori (green) object with one particle system.
+CombatTarget. For demonstration at that stage I have connected one
+Midori (green) object with the opening the hidden door feature (that door
+is placed near that object You must shoot to). To the second Midori combat
+target (placed in the room behind the hidden door) I have plugged feature of
+closing that door. Have fun!
