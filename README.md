@@ -29,3 +29,5 @@ Midori (green) object with the opening the hidden door feature (that door
 is placed near that object You must shoot to). To the second Midori combat
 target (placed in the room behind the hidden door) I have plugged feature of
 closing that door. Have fun!
+
+All graphic assets and animations has been made by me in Blender or Unity.
