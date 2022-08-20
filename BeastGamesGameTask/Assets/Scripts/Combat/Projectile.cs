@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Core;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace Combat
         private Rigidbody _rigidbody;
         private Vector3 _destinationVector;
         private IObjectPool<Projectile> _projectilePool;
+        private Coroutine _releaseProjectileCoroutine;
 
         public float Damage => _damage;
         public CombatMaterial CombatMaterial => combatMaterial;
@@ -30,19 +32,19 @@ namespace Combat
             _rigidbody.velocity = _destinationVector * speed;
         }
 
+        private void OnDisable()
+        {
+            StopCoroutine(_releaseProjectileCoroutine);
+        }
+
         public void SetPool(IObjectPool<Projectile> projectilePool) => _projectilePool = projectilePool;
-        
-        public IEnumerator PrepareProjectile(Vector3 destinationPoint, Vector3 firePoint, float damage)
+
+        public void PrepareProjectile(Vector3 destinationPoint, Vector3 firePoint, float damage)
         {
             SetProjectileDirection(destinationPoint, firePoint);
             SetDamage(damage);
             
-            yield return new WaitForSecondsRealtime(maxLifeTime);
-
-            if (gameObject.activeSelf)
-            {
-                _projectilePool.Release(this);
-            }
+            _releaseProjectileCoroutine = StartCoroutine(StartReleaseTimer());
         }
 
         private void SetProjectileDirection(Vector3 destinationPoint, Vector3 firePoint)
@@ -52,6 +54,16 @@ namespace Combat
         }
 
         private void SetDamage(float damage) =>_damage = damage;
+
+        private IEnumerator StartReleaseTimer()
+        {
+            yield return new WaitForSecondsRealtime(maxLifeTime);
+
+            if (gameObject.activeSelf)
+            {
+                _projectilePool.Release(this);
+            }
+        }
 
         private void OnTriggerEnter(Collider other)
         {
