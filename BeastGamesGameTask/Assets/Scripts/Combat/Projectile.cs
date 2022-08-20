@@ -51,19 +51,18 @@ namespace Combat
             _destinationVector = (destinationPoint - firePoint).normalized;
         }
 
-        private void SetDamage(float damage) =>this._damage = damage;
+        private void SetDamage(float damage) =>_damage = damage;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (hitEffect != null)
-            {
-                Instantiate(hitEffect, other.transform.position, Quaternion.identity);
-            }
-
             var combatTarget = other.GetComponent<CombatTarget>();
             if (combatTarget != null && combatTarget.CombatMaterial == combatMaterial)
             {
                 combatTarget.TakeDamage(_damage);
+                if (hitEffect != null)
+                {
+                    Instantiate(hitEffect, transform.position, Quaternion.identity);
+                }
             }
             
             _projectilePool.Release(this);
